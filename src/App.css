@@ -11,27 +11,19 @@
 
 .logo {
   float: left;
-  width: 240px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  line-height: 31px;
+  padding-left: 40px;
+  width: 360px;
+  height: 32px;
   color: beige;
   font-size: 20px;
 }
 
-.form-title {
-  line-height: 100px;
-}
-
-.form-background {
-  background-color: #383838;
-  height: 300px;
-  padding: 30px 60px;
-  color: white;
-}
-
-.form-background .ant-steps-item-title {
-  color: white;
+.logo img {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  margin-bottom: 4px;
+  vertical-align:middle;
 }
 
 @media (prefers-reduced-motion: no-preference) {

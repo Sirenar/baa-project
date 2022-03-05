@@ -1,9 +1,11 @@
-import logo from './logo.svg';
 import './App.css';
-import { Button, Layout, Menu, Breadcrumb, Form, Steps } from 'antd';
+import { Layout, Menu } from 'antd';
+import { Route, Routes, Link } from 'react-router-dom'
+import Home from './subPage/Home'
+import Records from './subPage/Records'
+import LogoIcon from './logo.png';
 
 const { Header, Content, Footer } = Layout;
-const { Step } = Steps;
 
 function App() {
   return (
@@ -11,54 +13,30 @@ function App() {
       <Layout>
         <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
           <div className="logo" >
+            <img src={LogoIcon}></img>
             BONE AGE ACCESSMENT
           </div>
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1">骨龄评估
+              <Link to='/home'></Link>
+            </Menu.Item>
+            <Menu.Item key="2">病例管理
+              <Link to='/records'></Link>
+            </Menu.Item>
+            <Menu.Item key="3">模型训练
+              <Link to='/training'></Link>
+            </Menu.Item>
+
           </Menu>
         </Header>
-        <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
-          <div className="site-layout-background" style={{ padding: 24, minHeight: 380 }}>
-            <div className="form-title">
-              儿童骨龄评估
-            </div>
-            <div className="form-background">
-            <Steps current={1}>
-              <Step title="Finished" description="This is a description." />
-              <Step title="In Progress" subTitle="Left 00:00:08" description="This is a description." />
-              <Step title="Waiting" description="This is a description." />
-            </Steps>,
-              <Form>
-                <Button type="primary" >
-                  Choose File
-                </Button>
-              </Form>
-            </div>
-          </div>
+        <Content className="site-layout" style={{ padding: '0 100px', marginTop: 64 }}>
+          <Routes>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/records" element={<Records/>}/>
+          </Routes>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-      </Layout>,
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      </Layout>
     </div>
   );
 }
