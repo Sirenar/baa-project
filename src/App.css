@@ -9,6 +9,10 @@
   pointer-events: none;
 }
 
+.App .ant-menu-item-selected, .App .ant-menu-item-active {
+  background-color: #4f68b0 ! important;
+}
+
 .logo {
   float: left;
   padding-left: 40px;
